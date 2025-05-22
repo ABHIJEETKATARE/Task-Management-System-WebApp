@@ -89,6 +89,15 @@ const Login = () => {
                 })}
                 error={errors.password ? errors.password?.message : ""}
               />
+              <div className="text-sm text-gray-600">
+                Don't have an account?{" "}
+                <span
+                  onClick={() => navigate("/sign-up")}
+                  className="text-blue-600 hover:underline cursor-pointer"
+                >
+                  Sign up here
+                </span>
+              </div>
               <span className='text-sm text-gray-600 hover:underline cursor-pointer'>
                 Forget Password?
               </span>
