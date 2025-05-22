@@ -16,6 +16,9 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+// CORS Pre-flight
+app.options('*', cors());
+
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -25,7 +28,10 @@ app.use(
         callback(new Error('Not allowed by CORS'));
       }
     },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     credentials: true,
+    maxAge: 86400 // 24 hours
   })
 );
 
