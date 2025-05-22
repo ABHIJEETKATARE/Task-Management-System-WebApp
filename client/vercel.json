@@ -1,6 +1,7 @@
 {
+  "version": 2,
   "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "buildCommand": "chmod +x ./node_modules/.bin/vite && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
@@ -11,7 +12,8 @@
   ],
   "build": {
     "env": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "NODE_OPTIONS": "--max_old_space_size=4096"
     }
   }
 } 
