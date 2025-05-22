@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "chmod +x ./node_modules/.bin/vite && npm run build",
+  "installCommand": "npm install --production=false",
+  "buildCommand": "npm install tailwindcss postcss autoprefixer && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
