@@ -8,6 +8,9 @@ export const apiSlice = createApi({
     baseUrl: baseUrl,
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
+      headers.set('Accept', 'application/json');
+      headers.set('Content-Type', 'application/json');
+      
       const token = getState().auth.token;
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
@@ -15,6 +18,6 @@ export const apiSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: [],
+  tagTypes: ['Auth', 'Task'],
   endpoints: (builder) => ({}),
 });
